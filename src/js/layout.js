@@ -10,6 +10,8 @@ import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import CombinedList from "./views/CombinedList";
+import Favorites from "./component/Favorites";
+import PersonDetails from "./views/s";
 
 //create your first component
 const Layout = () => {
@@ -24,8 +26,8 @@ const Layout = () => {
 					<Navbar />
 					<Routes>
 						<Route path="/" element={<CombinedList />} />
-						<Route path="/demo" element={<Demo />} />
-						<Route path="/single/:theid" element={<Single />} />
+						<Route path="/favorites" element={<Favorites />} />
+						<Route path="/details/characters/:uid" element={<PersonDetails />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
 					<Footer />

@@ -15,11 +15,11 @@ const PlanetCard = ({ planet }) => {
             <Card.Img variant="top" src={imageUrl} />
             <Card.Body>
                 <Card.Title>{planet.name}</Card.Title>
-                <Link to={`/details/planet/${planetId}`} className="btn btn-primary">Details</Link>
+                <Link to={`/details/planets/${planetId}`} className="btn btn-primary">Details</Link>
                 <Button
                     variant={isFavorite ? "danger" : "outline-primary"}
                     onClick={() => {
-                        isFavorite ? actions.removeFavorite(planet) : actions.addFavorite(planet);
+                        isFavorite ? actions.removeFavorite({ ...planet, type: 'planets' }) : actions.addFavorite({ ...planet, type: 'planets' });
                     }}
                 >
                     {isFavorite ? "Remove from Favorites" : "Add to Favorites"}

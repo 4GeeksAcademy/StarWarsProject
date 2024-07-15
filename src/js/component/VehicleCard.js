@@ -3,7 +3,7 @@ import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
 
-const vehicleCard = ({ vehicle }) => {
+const VehicleCard = ({ vehicle }) => {
     const { store, actions } = useContext(Context);
     const vehicleId = vehicle.uid;
     const imageUrl = `https://starwars-visualguide.com/assets/img/vehicles/${vehicleId}.jpg`;
@@ -15,11 +15,11 @@ const vehicleCard = ({ vehicle }) => {
             <Card.Img variant="top" src={imageUrl} />
             <Card.Body>
                 <Card.Title>{vehicle.name}</Card.Title>
-                <Link to={`/details/vehicle/${vehicleId}`} className="btn btn-primary">Details</Link>
+                <Link to={`/details/vehicles/${vehicleId}`} className="btn btn-primary">Details</Link>
                 <Button
                     variant={isFavorite ? "danger" : "outline-primary"}
                     onClick={() => {
-                        isFavorite ? actions.removeFavorite(vehicle) : actions.addFavorite(vehicle);
+                        isFavorite ? actions.removeFavorite({ ...vehicle, type: 'vehicles' }) : actions.addFavorite({ ...vehicle, type: 'vehicles' });
                     }}
                 >
                     {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
@@ -29,4 +29,4 @@ const vehicleCard = ({ vehicle }) => {
     );
 };
 
-export default vehicleCard;
+export default VehicleCard;

@@ -19,7 +19,7 @@ const PersonCard = ({ person }) => {
                 <Button
                     variant={isFavorite ? "danger" : "outline-primary"}
                     onClick={() => {
-                        isFavorite ? actions.removeFavorite(person) : actions.addFavorite(person);
+                        isFavorite ? actions.removeFavorite({ ...person, type: 'characters' }) : actions.addFavorite({ ...person, type: 'characters' });
                     }}
                 >
                     {isFavorite ? "Remove from Favorites" : "Add to Favorites"}

@@ -18,7 +18,7 @@ const CombinedList = () => {
         <Container>
             <h2>People</h2>
             <Row>
-                {store.people.map(person => (
+                {store.people && store.people.map(person => (
                     <Col key={person.uid} md={4}>
                         <PersonCard person={person} />
                     </Col>
@@ -27,7 +27,7 @@ const CombinedList = () => {
 
             <h2>Vehicles</h2>
             <Row>
-                {store.vehicles.map(vehicle => (
+                {store.vehicles && store.vehicles.map(vehicle => (
                     <Col key={vehicle.uid} md={4}>
                         <VehicleCard vehicle={vehicle} />
                     </Col>
@@ -36,7 +36,7 @@ const CombinedList = () => {
 
             <h2>Planets</h2>
             <Row>
-                {store.planets.map(planet => (
+                {store.planets && store.planets.map(planet => (
                     <Col key={planet.uid} md={4}>
                         <PlanetCard planet={planet} />
                     </Col>
